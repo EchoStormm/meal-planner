@@ -18,13 +18,12 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { recipes } from "@/data/recipes";
-import { Recipe, DayOfWeek, MealType, MealPlan, MealPlanItem, DayMeals } from "@/types";
+import { Recipe, DayOfWeek, MealType, MealPlan, DayMeals } from "@/types";
 import { RecipeCard } from "@/components/RecipeCard";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Home() {
   const [mealPlan, setMealPlan] = useState<MealPlan>({});
-  const [selectedRecipe, setSelectedRecipe] = useState<Recipe | null>(null);
   const [selectedDay, setSelectedDay] = useState<DayOfWeek | null>(null);
   const { t, language, setLanguage } = useLanguage();
 
@@ -85,7 +84,7 @@ export default function Home() {
   const getShoppingList = () => {
     const ingredients: { [key: string]: { quantity: number; unit: string } } = {};
     
-    Object.entries(mealPlan).forEach(([day, dayMeals]) => {
+    Object.entries(mealPlan).forEach(([_day, dayMeals]) => {
       if (!dayMeals || typeof dayMeals !== 'object') return;
       
       const meals = dayMeals as DayMeals;
