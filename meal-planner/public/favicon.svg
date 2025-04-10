@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fourchette verticale -->
+  <g transform="translate(16,16)">
+    <!-- Manche de la fourchette -->
+    <path d="M0 -10L0 10" stroke="url(#metallicGrey)" stroke-width="3"/>
+    <!-- Base de la fourchette -->
+    <path d="M0 0L-6 0" stroke="url(#metallicGrey)" stroke-width="3"/>
+    <!-- Dents de la fourchette -->
+    <path d="M-6 -6L0 0L6 -6" stroke="url(#metallicGrey)" stroke-width="3"/>
+    <path d="M-6 0L0 6L6 0" stroke="url(#metallicGrey)" stroke-width="3"/>
+    <path d="M-6 6L0 12L6 6" stroke="url(#metallicGrey)" stroke-width="3"/>
+    
+    <!-- Définition du dégradé métallique -->
+    <defs>
+      <linearGradient id="metallicGrey" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#E2E8F0"/>
+        <stop offset="50%" style="stop-color:#A0AEC0"/>
+        <stop offset="100%" style="stop-color:#718096"/>
+      </linearGradient>
+    </defs>
+  </g>
+</svg> 
