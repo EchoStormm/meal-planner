@@ -84,7 +84,7 @@ export default function Home() {
   const getShoppingList = () => {
     const ingredients: { [key: string]: { quantity: number; unit: string } } = {};
     
-    Object.entries(mealPlan).forEach(([day, dayMeals]) => {
+    Object.entries(mealPlan).forEach(([, dayMeals]) => {
       if (!dayMeals || typeof dayMeals !== 'object') return;
       
       const meals = dayMeals as DayMeals;
