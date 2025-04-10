@@ -18,7 +18,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { recipes } from "@/data/recipes";
-import { Recipe, DayOfWeek, MealType, MealPlan, DayMeals } from "@/types";
+import { DayOfWeek, MealType, MealPlan, DayMeals } from "@/types";
 import { RecipeCard } from "@/components/RecipeCard";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -84,13 +84,13 @@ export default function Home() {
   const getShoppingList = () => {
     const ingredients: { [key: string]: { quantity: number; unit: string } } = {};
     
-    Object.entries(mealPlan).forEach(([_day, dayMeals]) => {
+    Object.entries(mealPlan).forEach(([day, dayMeals]) => {
       if (!dayMeals || typeof dayMeals !== 'object') return;
       
       const meals = dayMeals as DayMeals;
       if (meals.lunch) {
         meals.lunch.recipe.ingredients.forEach((ingredient: { name: string; quantity: number; unit: string }) => {
-          const recipeTranslations = t.recipe.recipes[meals.lunch!.recipe.id as keyof typeof t.recipe.recipes];
+          const recipeTranslations = t.recipe.recipes[meals.lunch?.recipe.id as keyof typeof t.recipe.recipes];
           const translatedName = recipeTranslations?.ingredients[ingredient.name as keyof typeof recipeTranslations.ingredients] || ingredient.name;
           if (!ingredients[translatedName]) {
             ingredients[translatedName] = {
@@ -98,7 +98,7 @@ export default function Home() {
               unit: ingredient.unit,
             };
           }
-          ingredients[translatedName].quantity += adjustQuantity(ingredient.quantity, meals.lunch!.servings);
+          ingredients[translatedName].quantity += adjustQuantity(ingredient.quantity, meals.lunch?.servings ?? 0);
         });
       }
       

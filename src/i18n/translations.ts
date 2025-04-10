@@ -1,11 +1,3 @@
-// Base recipe structure
-const baseRecipeStructure = {
-  name: "",
-  description: "",
-  ingredients: {},
-  instructions: []
-};
-
 // Base translations structure
 const baseTranslations = {
   app: {
