@@ -70,7 +70,7 @@ export default function Home() {
       [day]: {
         ...prev[day],
         [mealType]: {
-          ...prev[day]?.[mealType]!,
+          ...prev[day]?.[mealType],
           servings,
         },
       },
@@ -98,7 +98,7 @@ export default function Home() {
               unit: ingredient.unit,
             };
           }
-          ingredients[translatedName].quantity += adjustQuantity(ingredient.quantity, meals.lunch?.servings ?? 0);
+          ingredients[translatedName].quantity += adjustQuantity(ingredient.quantity, meals.lunch?.servings || 2);
         });
       }
       
